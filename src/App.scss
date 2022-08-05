@@ -6,14 +6,10 @@ $dark-grayish-blue: hsl(217, 19%, 24%);
 $neon-green: hsl(150, 100%, 66%);
 
 @mixin screen-mobile {
-  @media (max-width: 375px) {
+  @media (min-width: 375px) and (max-width: 428px) {
     @content;
   }
 }
-
-// @mixin screen-desktop {
-//   @media (max-width: 1440px)
-// }
 
 .wrapper {
   display: flex;

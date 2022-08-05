@@ -11,7 +11,7 @@ function AdviceCard() {
 
   const updateMedia = () => setDesktop(window.innerWidth >= 1440);
 
-  // check to see if device width is desktop
+  // check to see if device width is desktop (1440px)
   useEffect(() => {
     window.addEventListener("resize", updateMedia);
     return () => window.removeEventListener("resize", updateMedia);
