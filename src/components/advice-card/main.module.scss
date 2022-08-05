@@ -1,0 +1,81 @@
+// Manrope googlefont
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&display=swap');
+
+$dark-grayish-blue: hsl(217, 19%, 24%);
+$neon-green: hsl(150, 100%, 66%);
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  aspect-ratio: 2 / 1;
+  width: 33vw;
+  height: auto;
+
+  background-color: $dark-grayish-blue;
+  border-radius: 1rem;
+
+  .flexContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    width: clamp(50%, 75%, 80%);
+
+    .top {
+      h1 {
+        color: $neon-green;
+        font-family: "Manrope", sans-serif;
+        font-weight: 800;
+        font-size: 14px;
+      }
+    }
+
+    .middle {
+      h2 {
+        color: white;
+        font-family: "Manrope", sans-serif;
+        font-weight: 800;
+        font-size: 28px;
+        text-align: center;
+      }
+    }
+
+    .bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      width: 100%;
+
+      hr {
+        margin: 0;
+        max-height: 1px;
+        width: 100%;
+      }
+    }
+
+    .diceWrapper {
+      position: absolute;
+      bottom: -10%;
+  
+      display: grid;
+      place-items: center;
+  
+      background-color: $neon-green;
+      border-radius: 100px;
+  
+      width: 4rem;
+      height: 4rem;
+
+      &:hover {
+        cursor: pointer;
+        
+      }
+    }
+  }
+}
