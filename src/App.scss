@@ -49,7 +49,11 @@ $neon-green: hsl(150, 100%, 66%);
         color: $neon-green;
         font-family: "Manrope", sans-serif;
         font-weight: 800;
-        font-size: 10px;
+        font-size: 14px;
+
+        @include screen-mobile() {
+          font-size: 10px;
+        }
       }
     }
 
@@ -65,7 +69,7 @@ $neon-green: hsl(150, 100%, 66%);
         text-align: center;
 
         @include screen-mobile() {
-          font-size: 18px;
+          font-size: 14px;
         }
       }
     }
@@ -76,6 +80,8 @@ $neon-green: hsl(150, 100%, 66%);
       align-items: center;
 
       width: 100%;
+
+      margin-bottom: 4.33rem;
 
       img {
         width: 100%;
@@ -88,7 +94,7 @@ $neon-green: hsl(150, 100%, 66%);
 
     .diceWrapper {
       position: absolute;
-      bottom: -20%;
+      bottom: -10%;
 
       display: grid;
       place-items: center;

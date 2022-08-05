@@ -1,11 +1,21 @@
 import React, { useEffect, useState } from "react";
 import "./App.scss";
 import Dice from "./images/icon-dice.svg";
+import DividerDesktop from "./images/pattern-divider-desktop.svg";
 import DividerMobile from "./images/pattern-divider-mobile.svg";
 
 function AdviceCard() {
   const [ID, setID] = useState("");
   const [advice, setAdvice] = useState("");
+  const [isDesktop, setDesktop] = useState(window.innerWidth >= 1440);
+
+  const updateMedia = () => setDesktop(window.innerWidth >= 1440);
+
+  // check to see if device width is desktop
+  useEffect(() => {
+    window.addEventListener("resize", updateMedia);
+    return () => window.removeEventListener("resize", updateMedia);
+  });
 
   useEffect(() => {
     fetch("https://api.adviceslip.com/advice")
@@ -26,7 +36,11 @@ function AdviceCard() {
           <h2>"{advice}"</h2>
         </div>
         <div className="bottom">
-          <img src={DividerMobile} alt="Divider" />
+          {isDesktop ? (
+            <img src={DividerDesktop} alt="Divider" />
+          ) : (
+            <img src={DividerMobile} alt="Divider" />
+          )}
         </div>
         <div
           className="diceWrapper"
