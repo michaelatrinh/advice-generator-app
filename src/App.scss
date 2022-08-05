@@ -39,7 +39,11 @@ $neon-green: hsl(150, 100%, 66%);
     width: 80%;
 
     .top {
-      margin-top: 1rem;
+      margin-top: 2rem;
+
+      @include screen-mobile() {
+        margin-top: 1rem;
+      }
 
       h1 {
         color: $neon-green;
@@ -90,7 +94,7 @@ $neon-green: hsl(150, 100%, 66%);
 
     .diceWrapper {
       position: absolute;
-      bottom: -10%;
+      bottom: -12.5%;
 
       display: grid;
       place-items: center;
@@ -105,7 +109,7 @@ $neon-green: hsl(150, 100%, 66%);
         width: 2.5rem;
         height: 2.5rem;
 
-        bottom: -10%;
+        bottom: -12.5%;
       }
 
       img {
