@@ -18,13 +18,22 @@ function AdviceCard() {
   });
 
   useEffect(() => {
-    fetch("https://api.adviceslip.com/advice")
+    fetch("https://api.adviceslip.com/advice", { cache: "no-cache" })
       .then((res) => res.json())
       .then((data) => {
         setID(data.slip.id);
         setAdvice(data.slip.advice);
       });
-  }, [ID, advice]);
+  }, []);
+
+  const fetchData = async () => {
+    await fetch("https://api.adviceslip.com/advice", { cache: "no-cache" })
+      .then((res) => res.json())
+      .then((data) => {
+        setID(data.slip.id);
+        setAdvice(data.slip.advice);
+      });
+  };
 
   return (
     <div className="wrapper">
@@ -42,13 +51,7 @@ function AdviceCard() {
             <img src={DividerMobile} alt="Divider" />
           )}
         </div>
-        <div
-          className="diceWrapper"
-          onClick={() => {
-            setID("");
-            setAdvice("");
-          }}
-        >
+        <div className="diceWrapper" onClick={fetchData}>
           <img src={Dice} alt="Generate New Random Advice" />
         </div>
       </div>
