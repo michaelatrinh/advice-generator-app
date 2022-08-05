@@ -1,20 +1,36 @@
 // Manrope googlefont
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&display=swap");
 
+$dark-blue: hsl(218, 23%, 16%);
 $dark-grayish-blue: hsl(217, 19%, 24%);
 $neon-green: hsl(150, 100%, 66%);
+
+@mixin screen-mobile {
+  @media (max-width: 375px) {
+    @content;
+  }
+}
+
+// @mixin screen-desktop {
+//   @media (max-width: 1440px)
+// }
 
 .wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
 
-  aspect-ratio: 2 / 1;
+  aspect-ratio: 3 / 1;
   width: 33vw;
   height: auto;
 
   background-color: $dark-grayish-blue;
   border-radius: 1rem;
+
+  @include screen-mobile() {
+    width: 66vw;
+    height: auto;
+  }
 
   .flexContainer {
     display: flex;
@@ -24,57 +40,81 @@ $neon-green: hsl(150, 100%, 66%);
 
     position: relative;
 
-    width: clamp(50%, 75%, 80%);
+    width: 80%;
 
     .top {
+      margin-top: 1rem;
+
       h1 {
         color: $neon-green;
         font-family: "Manrope", sans-serif;
         font-weight: 800;
-        font-size: 14px;
+        font-size: 10px;
       }
     }
 
     .middle {
+      margin-top: 0;
+      margin-bottom: 1rem;
+
       h2 {
         color: white;
         font-family: "Manrope", sans-serif;
         font-weight: 800;
         font-size: 28px;
         text-align: center;
+
+        @include screen-mobile() {
+          font-size: 18px;
+        }
       }
     }
 
     .bottom {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
 
       width: 100%;
 
-      hr {
-        margin: 0;
-        max-height: 1px;
+      img {
         width: 100%;
+      }
+
+      @include screen-mobile() {
+        margin-bottom: 2.5rem;
       }
     }
 
     .diceWrapper {
       position: absolute;
-      bottom: -10%;
-  
+      bottom: -20%;
+
       display: grid;
       place-items: center;
-  
+
       background-color: $neon-green;
       border-radius: 100px;
-  
+
       width: 4rem;
       height: 4rem;
 
+      @include screen-mobile() {
+        width: 2.5rem;
+        height: 2.5rem;
+
+        bottom: -10%;
+      }
+
+      img {
+        @include screen-mobile() {
+          width: 1rem;
+        }
+      }
+
       &:hover {
         cursor: pointer;
-        
+        box-shadow: 0 0 2rem $neon-green;
       }
     }
   }
